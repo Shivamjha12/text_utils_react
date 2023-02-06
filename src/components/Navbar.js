@@ -1,10 +1,8 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-
 export default function Navbar(props) {
   return (
   < >
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <a className="navbar-brand" href="/">{props.title}</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -19,6 +17,9 @@ export default function Navbar(props) {
                 <a className="nav-link" href="/">{props.navitem2}</a>
             </li>
             </ul>
+        </div>
+        <div className={`form-check form-switch mx-3 my-2 bg-${props.mode}`} >
+            <button type="button" id="changemodeButton" onClick={props.changeMode} className="btn btn-dark"> Enable {props.mode==='light'?'dark':'light'} Mode</button>
         </div>
     </nav>
   </>
