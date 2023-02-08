@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 
 export default function Forms(props) {
+  
   const textclick = ()=>{
     let arr = text.split(" ");
     for (var i = 0; i < arr.length; i++){
@@ -20,6 +21,7 @@ export default function Forms(props) {
     setText(str2);
 
   }
+  
   const txtclear = ()=>{
     let newtxt = "";
     setText(newtxt);
@@ -39,29 +41,41 @@ export default function Forms(props) {
     let str2 = emailarr.join(" ");
     setText(str2);
   }
-  const [mystyle,setStyle] = useState({
-    color:'white',
-    backgroundColor: 'black'
-  })
-  const [buttonText,setbuttonText] = useState("Enable Dark Mode")
-  const changeMode = ()=>{
-    if(mystyle.backgroundColor==='black'){
-      setStyle({
-        color:'black',
-        backgroundColor:'white'
-      })
-      setbuttonText("Enable Dark Mode")
-    }
-    else{
-      setStyle({
-        color:'white',
-        backgroundColor:'black',
-        border:'white-solid'
-      })
-      setbuttonText("Enable Light Mode")
-    }
-  }
+  // const [mystyle,setStyle] = useState({
+  //   color:'white',
+  //   backgroundColor: 'black'
+  // })
+  // const [buttonText,setbuttonText] = useState("Enable Dark Mode")
+  // previously used to implent dark on this page particularly
+  // const changeMode = ()=>{
+  //   if(mystyle.backgroundColor==='black'){
+  //     setStyle({
+  //       color:'black',
+  //       backgroundColor:'white'
+  //     })
+  //     setbuttonText("Enable Dark Mode")
+  //   }
+  //   else{
+  //     setStyle({
+  //       color:'white',
+  //       backgroundColor:'black',
+  //       border:'white-solid'
+  //     })
+  //     setbuttonText("Enable Light Mode")
+  //   }
+  // }
   const [text, setText] = useState('enter text here');
+  const nowf = () =>{
+    let words = 0;
+    let text_arrray = text.split(" ");
+    for(let i=0;i<text_arrray.length;i++){
+      if(text_arrray[i]!==""){
+        words++;
+      }
+    }
+    return words;
+
+  }
   return (
     <>
       <div>
@@ -93,7 +107,7 @@ export default function Forms(props) {
     <div className="conting text-center" >
       <h1> Text Counter</h1>
       <p>Character typed - {text.length}</p>
-      <p>Words typed - {text.split(" ").length}</p>
+      <p>Words typed - {nowf()}</p>
     </div>
     </>
   )
