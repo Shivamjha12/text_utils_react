@@ -29,6 +29,7 @@ function App() {
       document.body.style.backgroundColor='white';
       document.body.style.color='black';
       document.getElementById('textbox').style.backgroundColor='white';
+      document.getElementById('textbox').style.color='#000';
       document.title='Text Editor';
     }
   }
